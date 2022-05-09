@@ -1,37 +1,80 @@
-import Comentarios from "./Comentario";
-import Post from "./Post";
-export default function Posts() {
-  const posts = [
-    {
-      imgURL: "assets/img/meowed.svg",
-      user: "meowed",
-      postURL: "assets/img/gato-telefone.svg",
-      curtidoPorURL: "assets/img/respondeai.svg",
-      curtidoPor: "respondeai",
-      nCurtidas: "101.523",
-      comentarios: [],
-      loggedUserImgURL: "assets/img/catanacomics.svg"
-    },
-
-    {
-      imgURL: "assets/img/barked.svg",
-      user: "barked",
-      postURL: "assets/img/dog.svg",
-      curtidoPorURL: "assets/img/adorable_animals.svg",
-      curtidoPor: "adorable_animals",
-      nCurtidas: "99.159",
-      comentarios: [
-        {
-          commentUser: "meowed", 
-          commentText: "meow",
+function Post({
+    conteudo,
+    usuario: { imagem, nome },
+    curtidores: { imagemAmigo, amigo, quantidade }
+  }) {
+    return (
+      <div class="post">
+        <div class="topo">
+          <div class="usuario">
+            <img src={`assets/img/${imagem}`} />
+            {nome}
+          </div>
+          <div class="acoes">
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+          </div>
+        </div>
+  
+        <div class="conteudo">
+          <img src={`assets/img/${conteudo}`} />
+        </div>
+  
+        <div class="fundo">
+          <div class="acoes">
+            <div>
+              <ion-icon name="heart-outline"></ion-icon>
+              <ion-icon name="chatbubble-outline"></ion-icon>
+              <ion-icon name="paper-plane-outline"></ion-icon>
+            </div>
+            <div>
+              <ion-icon name="bookmark-outline"></ion-icon>
+            </div>
+          </div>
+  
+          <div class="curtidas">
+            <img src={`assets/img/${imagemAmigo}`} />
+            <div class="texto">
+              Curtido por <strong>{amigo}</strong> e <strong>outras {quantidade} pessoas</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
+  export default function Posts() {
+    const posts = [
+      {
+        usuario: {
+          nome: "meowed",
+          imagem: "meowed.svg",
         },
-        {
-          commentUser: "barked", 
-          commentText: "bork bork",
+        conteudo: "gato-telefone.svg",
+        curtidores: {
+          amigo: "respondeai",
+          imagemAmigo: "respondeai.svg",
+          quantidade: "101.523"
         }
-      ],
-      loggedUserImgURL: "assets/img/catanacomics.svg"
-    },
-  ];
-  return <div class="posts">{posts.map((post) => Post(post))}</div>;
-}
+      },
+      {
+        usuario: {
+          nome: "barked",
+          imagem: "barked.svg",
+        },
+        conteudo: "dog.svg",
+        curtidores: {
+          amigo: "adorable_animals",
+          imagemAmigo: "adorable_animals.svg",
+          quantidade: "99.159"
+        }
+      },
+    ]
+  
+    return (
+      <div class="posts">
+        {posts.map((post) => (
+          <Post usuario={post.usuario} conteudo={post.conteudo} curtidores={post.curtidores} />
+        ))}
+      </div>
+    );
+  }

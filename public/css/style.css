@@ -212,24 +212,24 @@ body {
   margin-bottom: 18px;
 }
 
-.sidebar > div{
+.sidebar {
   padding-top: 24px;
   position: sticky;
   top: 88px;
 }
 
-.sidebar .usuario {
+.sidebar > .usuario {
   display: flex;
   align-items: center;
 }
 
-.sidebar .usuario img {
+.sidebar > .usuario img {
   width: 56px;
   height: 56px;
   border-radius: 50%;
 }
 
-.sidebar .usuario .texto {
+.sidebar > .usuario .texto {
   display: flex;
   flex-direction: column;
   margin-left: 14px;
@@ -237,7 +237,7 @@ body {
   color: #8E8E8E;
 }
 
-.sidebar .usuario .texto strong {
+.sidebar > .usuario .texto strong {
   font-weight: 500;
   color: #262626;
 }
@@ -298,11 +298,11 @@ body {
   margin-top: 18px;
 }
 
-.fundo-mobile {
+.base {
   display: none;
 }
 
-.fundo-mobile ion-icon {
+.base ion-icon {
   cursor: pointer;
 }
 
@@ -363,7 +363,7 @@ body {
     display: flex;
   }
 
-  .fundo-mobile {
+  .base {
     display: flex;
     padding: 0 20px;
     justify-content: space-between;
@@ -390,53 +390,4 @@ body {
     position: relative;
     top: 4px;
   }
-}
-.comentarios {
-  padding: 0 15px;
-}
-.comentarios img {
-  object-fit: cover;
-  width: 30px;
-  height: 30px;
-}
-.publicar-comentario {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.publicar-comentario > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 15px 0;
-}
-.publicar-comentario button {
-  color: gray;
-  border: 1px solid #8E8E8E;
-  border-radius: 5px;
-  background: none;
-  transition: all 0.2s;
-}
-.publicar-comentario button:hover {
-  color: #139EF2;
-  border-color: #139EF2; 
-}
-
-.publicar-comentario input {
-  border: 0;
-  background: none;
-}
-
-.comentario {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.comentario button {
-  border: 0;
-  background: none;
-  transition: all 0.2s;
-}
-.comentario button:hover {
-  color:crimson;
 }

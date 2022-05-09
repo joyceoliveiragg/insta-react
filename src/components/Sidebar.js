@@ -1,26 +1,25 @@
-import User from "./User";
+import CardUsuario from "./CardUsuario";
 import Sugestoes from "./Sugestoes";
 
-const user = {
-  imgURL: "assets/img/catanacomics.svg",
-  username: "catanacomics",
-  name: "Catana",
-};
-
 export default function Sidebar() {
+  const usuario = {
+    imagem: "catanacomics.svg",
+    usuario: "catanacomics",
+    nome: "Catana"
+  }
+
   return (
     <div class="sidebar">
-      <div>
-        <div>
-        {User(user)}
-        <Sugestoes />
-        <div class="links">
-          Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos •
-          Localizações • Contas mais relevantes • Hashtags • Idioma
-        </div>
+      <CardUsuario imagem={usuario.imagem} usuario={usuario.usuario} nome={usuario.nome} />
 
-        <div class="copyright">© 2021 INSTAGRAM DO FACEBOOK</div>
-        </div>
+      <Sugestoes />
+
+      <div class="links">
+        Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
+      </div>
+
+      <div class="copyright">
+        © 2021 INSTAGRAM DO FACEBOOK
       </div>
     </div>
   );

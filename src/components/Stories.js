@@ -1,24 +1,36 @@
-import Story from "./Story";
-export default function Stories() {
-  const stories = 
-  [
-    { imgURL: "assets/img/9gag.svg", user: "9gag" },
-    { imgURL: "assets/img/meowed.svg", user: "meowed" },
-    { imgURL: "assets/img/barked.svg", user: "barked" },
-    { imgURL: "assets/img/nathanwpylestrangeplanet.svg", user: "nathanwpylestrangeplanet" },
-    { imgURL: "assets/img/wawawicomics.svg", user: "wawawicomics" },
-    { imgURL: "assets/img/respondeai.svg", user: "respondeai" },
-    { imgURL: "assets/img/filomoderna.svg", user: "filomoderna" },
-    { imgURL: "assets/img/memeriagourmet.svg", user: "memeriagourmet" },
-  ];
-  return (
-    <div class="stories">
-      {stories.map((story) => (Story(story)
-      ))}
-      <div class="setinha">
-        <ion-icon name="chevron-forward-circle"></ion-icon>
+function Story({ imagem, usuario }) {
+
+    return (
+      <div class="story">
+        <div class="imagem">
+          <img src={`assets/img/${imagem}`} />
+        </div>
+        <div class="usuario">
+          {usuario}
+        </div>
       </div>
-    </div>
-  );
-        
-}
+    );
+  }
+  
+  export default function Stories() {
+    const stories = [
+      { imagem: "9gag.svg", usuario: "9gag" },
+      { imagem: "meowed.svg", usuario: "meowed" },
+      { imagem: "barked.svg", usuario: "barked" },
+      { imagem: "nathanwpylestrangeplanet.svg", usuario: "nathanwpylestrangeplanet" },
+      { imagem: "wawawicomics.svg", usuario: "wawawicomics" },
+      { imagem: "respondeai.svg", usuario: "respondeai" },
+      { imagem: "filomoderna.svg", usuario: "filomoderna" },
+      { imagem: "memeriagourmet.svg", usuario: "memeriagourmet" },
+    ];
+  
+    return (
+      <div class="stories">
+        {stories.map((story) => <Story imagem={story.imagem} usuario={story.usuario} />)}
+  
+        <div class="setinha">
+          <ion-icon name="chevron-forward-circle"></ion-icon>
+        </div>
+      </div>
+    );
+  }
